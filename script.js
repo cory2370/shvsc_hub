@@ -5,9 +5,10 @@ function enableHorizontalScroll() {
         container.addEventListener('wheel', (e) => {
             if (e.deltaY !== 0) {
                 e.preventDefault();
+                e.stopPropagation();
                 container.scrollLeft += e.deltaY;
             }
-        });
+        }, { passive: false });
     });
 }
 
